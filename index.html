@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Daniel Simulator: El Ojo de la Primavera — Kazoo Studios</title>
+<meta name="description" content="Juego 8-bit +18 de Kazoo Studios. Daniel tiene que salvar a su husky Nieve del huracán Chuyita en Culiacán.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; touch-action: none; -webkit-user-select: none; user-select: none; }
+  #c { display: block; width: 100vw; height: 100vh; object-fit: contain; image-rendering: pixelated; }
+  #touch { display: none; position: fixed; inset: 0; pointer-events: none; font-family: 'Press Start 2P', monospace; }
+  #touch button { pointer-events: auto; position: absolute; border: 2px solid rgba(255,255,255,.5); background: rgba(0,0,0,.35); color: #fff; font: 11px 'Press Start 2P', monospace; border-radius: 10px; width: 52px; height: 52px; padding: 0; }
+  #touch button.on { background: rgba(255,216,74,.5); }
+  #touch .s { width: 44px; height: 30px; font-size: 8px; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="touch">
+  <button data-k="arrowup" style="left:66px;bottom:118px">▲</button>
+  <button data-k="arrowleft" style="left:10px;bottom:62px">◀</button>
+  <button data-k="arrowright" style="left:122px;bottom:62px">▶</button>
+  <button data-k="arrowdown" style="left:66px;bottom:6px">▼</button>
+  <button data-k="z" style="right:122px;bottom:62px">Z</button>
+  <button data-k="x" style="right:66px;bottom:62px">X</button>
+  <button data-k="c" style="right:10px;bottom:62px">C</button>
+  <button data-k="v" style="right:66px;bottom:118px">V</button>
+  <button data-k="a" style="right:122px;bottom:6px">BLQ</button>
+  <button data-k="s" style="right:66px;bottom:6px">LORO</button>
+  <button data-k="q" style="right:10px;bottom:6px">Q</button>
+  <button class="s" data-k="enter" style="left:50%;top:6px;transform:translateX(-50%)">MENÚ</button>
+</div>
+<script src="js/engine.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/fight.js"></script>
+<script src="js/enemies.js"></script>
+<script src="js/world.js"></script>
+<script src="js/story.js"></script>
+<script>
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { setScene(TitleScene); requestAnimationFrame(loop); });
+</script>
+</body>
+</html>
